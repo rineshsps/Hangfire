@@ -3,6 +3,9 @@ using Hangfire.BusinessServices;
 using Hangfire.Dashboard;
 using Hangfire.Dashboard.BasicAuthorization;
 using Hangfire.MemoryStorage;
+using Hangfire.MySql;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,14 @@ builder.Services.AddHangfire(c => c.UseMemoryStorage());
 //builder.Services.AddHangfire(x =>
 //{
 //    x.UseSqlServerStorage("Server=.;Database=HangfireApplication;Trusted_Connection=True");
+//});
+
+//hangfire storage my sql config
+//builder.Services.AddHangfire(x =>
+//{
+//    var options = new MySqlStorageOptions();
+//    options.TablesPrefix = "hangfire";
+//    x.UseStorage(new MySqlStorage("persistsecurityinfo=True;port=3308;server=localhost;user id=root;password=password;database=hangfire;allowuservariables=True", options));
 //});
 
 

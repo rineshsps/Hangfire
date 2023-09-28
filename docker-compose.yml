@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  mysql:
+    image: mysql:5.7
+    # restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "hangfire"
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  hangfire.api:
+    image: ${DOCKER_REGISTRY-}hangfire
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    # restart: always
+    environment:
+      ConnectionStrings__HangfireContext: "persistsecurityinfo=True;port=3306;server=mysql;user id=root;password=password;database=hangfire;allowuservariables=True"
+    ports:
+      - "8080:80"
+    # depends_on:
+    #   - mysql
+#     networks:
+#       - custom_network
+
+volumes:
+  mysql-data:
+
+# networks:
+#   custom_network:

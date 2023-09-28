@@ -1,4 +1,5 @@
 # Hangfire
 
 
-![image](https://github.com/rineshsps/Hangfire/assets/10809494/6a6373fa-0eeb-4f39-81ef-cba49c53468d)
+![image](https://github.com/rineshsps/Hangfire/assets/10809494/1898c128-cc34-40fe-a870-31fec4cc3447)
+

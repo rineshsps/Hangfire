@@ -59,6 +59,10 @@ namespace Hangfire.Controllers
             // With New job id sample 
             //_recurringJobManager.AddOrUpdate(Guid.NewGuid().ToString(), () => _jobTestService.EmailNotificationJob(), Cron.Daily);
 
+            //Crone expression 
+            //_recurringJobManager.AddOrUpdate("cron expression", () => _jobTestService.EmailNotificationJob(), "0 0 2,8 2,11 *");
+
+
             return Ok();
         }
     }
